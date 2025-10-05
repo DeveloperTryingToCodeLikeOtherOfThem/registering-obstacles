@@ -16,6 +16,16 @@ class RegisteringObstacles {
       } else return
    }
 
+   clearAllObstacleTiles(tm: tiles.TileMap) {
+       if (tm && tm.enabled) {
+           for (let y = 0; y <= tm.areaHeight(); y++) {
+               for (let x = 0; x <= tm.areaWidth(); x++) {
+                  tm.setWallAt(x, y, false)
+               }
+           }
+       } 
+   }
+
    isObstacle(x: number, y: number) {
      const tm = game.currentScene().tileMap
 
